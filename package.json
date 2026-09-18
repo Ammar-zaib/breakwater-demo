@@ -1,0 +1,8 @@
+{
+  "name": "breakwater-demo-repo",
+  "version": "1.0.0",
+  "description": "Demo repo with intentionally risky Stripe integration patterns, for testing Breakwater scans.",
+  "dependencies": {
+    "stripe": "^17.0.0"
+  }
+}
