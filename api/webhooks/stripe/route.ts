@@ -24,9 +24,11 @@ export async function POST(req: NextRequest) {
       // handle invoice paid
       break;
     default:
-      // Anything Stripe sends that isn't one of the two cases above throws,
-      // which Stripe's retry logic will treat as a failed delivery.
-      throw new Error(`Unhandled event type: ${event.type}`);
+      // Unrecognized event types are logged and ignored rather than
+      // treated as failures, so Stripe doesn't disable this endpoint
+      // when it introduces new event types.
+      console.log(`Unhandled event type: ${event.type}`);
+      break;
   }
 
   return new Response(JSON.stringify({ received: true }), { status: 200 });
