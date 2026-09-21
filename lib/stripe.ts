@@ -6,4 +6,6 @@ import Stripe from "stripe";
 // year Stripe ships a named major release that CAN include breaking changes,
 // and any integration that doesn't pin a version gets that new behavior with
 // zero code change and zero deploy.
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string);
+export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
+  apiVersion: "2026-08-26.dahlia",
+});
